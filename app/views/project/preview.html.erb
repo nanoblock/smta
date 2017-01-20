@@ -31,7 +31,7 @@
 
       <div class="video-view" id="<%= @video.id %>">
         <figure id="videoContainer" data-fullscreen="false">
-          <video muted id="video" src="<%= @video.url %>"></video>
+          <video id="video" src="<%= @video.url %>"></video>
         </figure>
         <% @clickables.each do |clickables| %>
           <div class="pause" id="<%= clickables.time %>" name="<%= @video.id %>"
@@ -51,10 +51,7 @@
         </div>
       <% end %>
     <% end %>
-
-  </div>
-
-  <div class="preview-name">
+    <div class="preview-name">
     <% if @project_manager || @project.type(@project.id) %>
       <%= link_to @project.name, show_project_path(@project.id) %>
     <% else %>
@@ -62,6 +59,7 @@
     <% end %>
   </div>
   <div class="preview-line"></div>
+  </div>
 
   <form id="hrefPost">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
